@@ -7,6 +7,7 @@ require("dotenv").config();
       console.log("Database Connect Succesfull")
     }catch(error){
         throw new Error(error);
+       
     }
 }
 

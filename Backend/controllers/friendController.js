@@ -5,10 +5,10 @@ exports.friendList = async (req , res) => {
     try{
        const acceptUsers = await Request.find(
         {action : "Accept",
-         from : req.user.id   
+         to : req.user.id   
         });
 
-       const friendId = await acceptUsers.map( friend => friend.to);
+       const friendId = await acceptUsers.map( friend => friend.from);
 
        const friendPost = await userModel.find({_id : {$in : friendId}})
 
@@ -23,11 +23,11 @@ exports.friendRequests = async (req , res) => {
     try{
        const interestedUsers = await Request.find(
         {action : "Interested" ,
-         from : req.user.id
+         to : req.user.id
         }
     )
       
-       const requestId = await interestedUsers.map( request => request.to);
+       const requestId = await interestedUsers.map( request => request.from);
 
        const requests = await userModel.find({ _id : {$in : requestId} })
 

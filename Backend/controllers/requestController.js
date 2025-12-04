@@ -67,6 +67,8 @@ exports.acceptRequest = async (req, res) => {
       { new: true }
     );
 
+    
+
     if (!accept) return res.status(400).json(" not found ");
 
     await userModel.findByIdAndUpdate(
@@ -94,7 +96,8 @@ exports.rejectRequest = async (req, res) => {
       { action: "Reject" },
       { new: true }
     );
-
+ 
+    console.log("reject" , reject)
     if (!reject) return res.status(400).json(" not found ");
 
     await userModel.findByIdAndUpdate(

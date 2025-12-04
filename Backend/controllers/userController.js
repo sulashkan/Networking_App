@@ -6,7 +6,7 @@ exports.userProfile = async (req , res) => {
        const user = await userModel.findById(req.user.id);
        if(!user) return res.status(404).json({error : 'user not found'})
        
-       return res.status(201).json(user)
+       return res.status(201).json([user])
      
     }catch(error){
        console.log("profile error" , error);

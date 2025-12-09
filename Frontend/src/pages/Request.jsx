@@ -53,6 +53,7 @@ export const Request = () => {
           `/request/accept/${requestData._id}`
         );
         console.log("accept", accept);
+        setIsRequest(false);
         dispatch(requestActions.acceptRequest(accept.data));
       }
     } catch (error) {
@@ -64,8 +65,6 @@ export const Request = () => {
 
   const rejectHandler = async (id) => {
     try {
-      console.log("id" , id)
-      
       if (requestData.from === id) {
         const reject = await axiosInstance.post(
           `/request/reject/${requestData._id}`
@@ -106,8 +105,6 @@ export const Request = () => {
                   Accept
                 </button>
                    
-
-               
                 <button
                   onClick={() => rejectHandler(post._id)}
                   className=" rounded-md p-1 pl-2 pr-2 bg-red-600 hover:bg-red-700"

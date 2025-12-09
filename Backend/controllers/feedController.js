@@ -15,6 +15,7 @@ exports.allUsers = async (req , res) => {
      const users = await userModel.find( {_id : {$nin : excludeUserIds}});
 
      return res.status(201).json(users);
+
   }catch(err){
     console.log('feed err' , err);
     return res.status(404).json({error : 'User not found'})

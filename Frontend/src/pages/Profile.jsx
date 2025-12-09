@@ -30,6 +30,7 @@ export const Profile = () => {
     backgroundImage:
       "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
   }}>
+    
    
     <ProfileDetails prof={prof[0] || {}}/>
     </div>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../redux/slices/authSlice";
+import { ToastContainer , toast } from "react-toastify";
 
 export const Signup = () => {
   const [skill, setSkill] = useState("");
@@ -25,7 +26,9 @@ export const Signup = () => {
 
     const response = await axiosInstance.post("/auth/signup", formData);
     if(!response) return console.log('signup error')
-    console.log(response);
+    
+    toast("Signup Successfully")
+
     dispatch(authActions.userInfo(response.data))
     navigate('/');
   }
@@ -54,6 +57,8 @@ export const Signup = () => {
           "url(https://images.unsplash.com/photo-1432821596592-e2c18b78144f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9naW4lMjBwYWdlfGVufDB8fDB8fHww)",
       }}
     >
+
+      <ToastContainer/>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="flex flex-col gap-2 bg-gradient-to-r from-gray-900 to-emerald-500 p-10 rounded-md"

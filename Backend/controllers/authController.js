@@ -15,7 +15,7 @@ exports.signup = async (req, res) => {
     if (!name || !email || !password || !profession) {
       return res
         .status(400)
-        .json({ error: "name ,email,password,profession and skills required" });
+        .json({ error: "name, email, password, profession and skills required" });
     }
 
     const userExits = await userModel.findOne({ email });

@@ -19,6 +19,11 @@ const userSchema = mongoose.Schema({
     required: true,
     index: true,
   },
+   remove : {
+     type : Boolean,
+     default : false,
+   },
+  
   skills: {
     type: [String],
     default: [],

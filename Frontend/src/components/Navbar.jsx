@@ -18,7 +18,7 @@ export const Navbar = () => {
 
   const logoutHandler = async () => {
      const logout =  await axiosInstance.get('/auth/logout');
-     console.log(logout);
+     console.log("logout" , logout);
      navigate('/');
   }
 
@@ -31,8 +31,7 @@ export const Navbar = () => {
   <>
     <div className='flex justify-evenly bg-blue-500 p-2 gap-x-96'>
         <div>
-            {/* <img className="h-10 " src='../assets/react.svg' height={50} width={90} alt="logo"></img> */}
-            <Link to="/feed" className='font-bold italic text-2xl text-black hover:text-white'>Networking_App</Link>
+            <Link to="/feed" className='font-bold italic text-2xl text-white hover:text-orange-300'>Networking_App</Link>
         </div>
         <div className='flex gap-4 text-[20px]'>
             <button onClick={requestHandler} className="btn btn-accent">requests</button>

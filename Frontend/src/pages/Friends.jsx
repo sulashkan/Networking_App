@@ -14,7 +14,7 @@ export const Friends =  () => {
             const response = await axiosInstance.get("/friends/");
             console.log("friend" ,response.data)
             setList(response.data);
-            setFriend(true);
+            setFriend(!friend);
         }catch(error){
             console.log("connection error" , error);
         }
@@ -24,7 +24,7 @@ export const Friends =  () => {
 
   return (
     <div className='flex gap-3 ml-2'>
-        {friend ?
+        {list.length > 0 ?
         (list?.map((u, index) => 
         (<FriendCard user={u.from ?? u.to}  key={index+1}/>)))
        : 

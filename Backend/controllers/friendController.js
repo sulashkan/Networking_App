@@ -4,19 +4,13 @@ const userModel = require("../models/userModel");
 
 exports.friendList = async (req , res) => {
     try{
-        const userId = req.user.id;
+       const userId = req.user.id;
        const acceptUsers = await Request.find({$and:[
         {$or:[{from : userId} , {to:userId}]},
         {action : "Accept"}
        ]}
         ).populate({path:"from" , match:{_id:{$ne : userId}}})
-        .populate({path:"to" , match:{_id:{$ne : userId}}})
-
-        
-
-    //    const friendId = await acceptUsers.map( friend => friend.from);
-
-    //    const friendPost = await userModel.find({_id : {$in : friendId}})
+         .populate({path:"to" , match:{_id:{$ne : userId}}})
 
 
        return res.status(200).json(acceptUsers);

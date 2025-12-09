@@ -7,12 +7,10 @@ import { Profile } from "./pages/Profile";
 import { Request } from "./pages/Request";
 import { Friends } from "./pages/Friends";
 import { Navbar } from "./components/Navbar";
-import { useSelector } from "react-redux";
 import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
-  const user = useSelector((state) => state.auth);
-  console.log("useInfo", user);
+ 
 
   return (
     <div>

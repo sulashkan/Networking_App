@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import { authActions } from "../redux/slices/authSlice";
 import {validator} from "../utility/validator"
+import { toast, ToastContainer } from "react-toastify";
+  
 
 export const Login = () => {
   const [message , setMessage] = useState("");
@@ -19,10 +21,6 @@ export const Login = () => {
     password: "",
   });
 
-
-
-
-
     const clickHandler = async (e) => {
     e.preventDefault();
     
@@ -31,7 +29,7 @@ export const Login = () => {
     const isValid = validator(email , password);
     if(isValid){
       setMessage(isValid.message)
-      return 
+      return ;
     }
 
     console.log(formData);
@@ -44,7 +42,8 @@ export const Login = () => {
 
 
     localStorage.setItem("token" , response.data.token);
-    
+    toast("Login Succussfully");
+
     navigate('/feed');
   }
 
@@ -60,6 +59,7 @@ export const Login = () => {
      style={{
         backgroundImage: "url(https://images.unsplash.com/photo-1432821596592-e2c18b78144f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bG9naW4lMjBwYWdlfGVufDB8fDB8fHww)"
      } } >
+      
 
       <form onSubmit={(e) => e.preventDefault()} className="w-[350px] z-10 min-h-[300px] flex flex-col  p-5 gap-6  border-black rounded-md bg-gradient-to-r from-gray-900 mask-b-to-cyan-100" >
         <div className="flex flex-col">

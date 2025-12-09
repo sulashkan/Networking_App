@@ -3,7 +3,7 @@ import React from 'react'
 const FriendCard = ({user}) => {
   return (
        <div
-            className="flex ml-1 card bg-base-100 w-76 shadow-sm bg-blue-950 mt-8 hover:transition-shadow"
+            className="flex ml-1 card  w-76 shadow-sm bg-blue-950 mt-8 hover:transition-shadow"
           >
             <figure className="px-10 pt-10">
               <img
@@ -13,11 +13,11 @@ const FriendCard = ({user}) => {
               />
             </figure>
             <div className="card-body items-center text-center">
-              <h2 className="card-title">{user.name}</h2>
-              <h2>{user.email}</h2>
-              <p>{user.profession}</p>
-              <div className="flex gap-1">
-                <p>Skills : </p>
+              <h2 className="card-title"> Name : {user.name}</h2>
+              <h2>email : {user.email}</h2>
+              <p>profession : {user.profession}</p>
+              <div className="flex flex-wrap gap-1">
+                <p className='text-green-400'>Skills : </p>
                 {user.skills.map((i, index) => (
                   <div className="" key={index+1}>{i},</div>
                 ))}

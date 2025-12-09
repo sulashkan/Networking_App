@@ -3,10 +3,10 @@ const userModel = require('../models/userModel');
 exports.userProfile = async (req , res) => {
     try{
         console.log("user" , req.user.id);
-       const user = await userModel.findById(req.user.id);
-       if(!user) return res.status(404).json({error : 'user not found'})
+        const user = await userModel.findById(req.user.id);
+        if(!user) return res.status(404).json({error : 'user not found'})
        
-       return res.status(201).json([user])
+        return res.status(201).json([user])
      
     }catch(error){
        console.log("profile error" , error);
